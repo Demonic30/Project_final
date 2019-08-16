@@ -18,12 +18,12 @@
             <md-card-content>
               <div>
                 <md-field md-clearable>
-                  <label>Cleareable</label>
+                  <label>E-mail</label>
                   <md-input v-model="initial"></md-input>
                 </md-field>
 
                 <md-field>
-                  <label>Password toggle</label>
+                  <label>Password</label>
                   <md-input v-model="password" type="password"></md-input>
                 </md-field>
               </div>

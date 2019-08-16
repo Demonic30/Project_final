@@ -3,22 +3,18 @@
     <md-card-header data-background-color="orange">
       <form novalidate @submit.stop.prevent="showSnackbar = true">
         <div class="md-layout">
-          <div class="md-layout-item md-small-size-100 md-size-50">
+          <div class="md-layout-item md-small-size-100 md-size-80">
             <br>
             <div for="snackbar-center" class="md-body-2">Answer 150</div>
-          </div>
-          <div class="md-layout-item md-small-size-100 md-size-50">
-            <md-button class="md-icon-button md-dense md-raised md-primary">
-              <md-icon>description</md-icon>
-            </md-button>
-            <p>Download Replies</p>
-          </div>
-          <div class="md-layout-item md-small-size-100 md-size-50">
-            <br />
+            <br>
             <div class="md-body-2">SUMMARY INFORMATION</div>
           </div>
-          <div class="md-layout-item md-small-size-100 md-size-50">
-            <md-switch v-model="isInfinity">Open to answer</md-switch>
+          <div class="md-layout-item md-small-size-100 md-size-20">
+            <center> <md-button class="md-icon-button md-dense md-raised md-primary">
+              <md-icon>description</md-icon>
+            </md-button>
+            <p>Download Replies</p></center>
+            <md-switch v-model="switch1">Open to answer</md-switch>
           </div>
         </div>
       </form>
@@ -68,6 +64,11 @@ export default {
       default: ""
     }
   },
+  data () {
+      return {
+        switch1: true
+      }
+    },
   name: "SnackbarExample",
   data: () => ({
     showSnackbar: false,

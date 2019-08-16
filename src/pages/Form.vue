@@ -2,7 +2,7 @@
   <div class="content">
     <div class="md-layout">
 
-        <div id="card" class="md-layout-item md-medium-size-80 md-xsmall-size-80 md-size-80">
+        <div id="card" class="md-layout-item md-medium-size-70 md-xsmall-size-70 md-size-70">
           <nav-tabs-card>
             <md-tabs class="md-accent" md-alignment="centered">
               <md-tab id="tab-home" md-label="Question" md-icon="question_answer">
@@ -40,11 +40,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.elevation-demo {
-  padding: 16px;
-  display: flex;
-  flex-wrap: wrap;
-}
+
 
 #card{
   margin-left: 10%

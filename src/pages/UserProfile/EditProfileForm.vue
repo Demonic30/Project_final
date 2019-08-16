@@ -23,34 +23,59 @@
                   <md-input v-model="password" type="text"></md-input>
                 </md-field>
                 <md-field>
-              <label>ข้อความคำตอบ</label>
-              <md-input v-model="disabled" disabled></md-input>
-            </md-field>
-                
+                  <label>ข้อความคำตอบ</label>
+                  <md-input v-model="disabled" disabled></md-input>
+                </md-field>
               </div>
               <div class="md-layout-item md-small-size-10 md-size-10">
                 <md-menu md-size="medium" md-align-trigger>
-
-                  <md-button class="md-primary md-just-icon md-round" md-menu-trigger><md-icon >cached</md-icon></md-button>
+                  <md-button class="md-primary md-just-icon md-round" md-menu-trigger>
+                    <md-icon>cached</md-icon>
+                  </md-button>
 
                   <md-menu-content>
-                    <md-menu-item>ข้อความสั้นๆ</md-menu-item>
-                    <md-menu-item>ตัวเลือกประกอบรูปภาพ</md-menu-item>
-                    <md-menu-item>ตัวเลอกข้อความ</md-menu-item>
+                    <md-menu-item>
+                      <md-button class="md-simple md-sm">
+                        <md-icon>short_text</md-icon>ข้อความสั้นๆ
+                      </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                      <md-button class="md-simple md-sm">
+                        <md-icon>insert_photo</md-icon>ตัวเลือกประกอบรูปภาพ
+                      </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                      <md-button class="md-simple md-sm">
+                        <md-icon>radio_button_checked</md-icon>ตัวเลอกข้อความ
+                      </md-button>
+                    </md-menu-item>
                   </md-menu-content>
                 </md-menu>
               </div>
             </div>
           </md-card-content>
 
-          <md-card-actions md-alignment="left">
-            <slot name="footer"><md-button href class="md-success md-round" slot="footer">Unlock</md-button></slot>
+          <md-card-actions md-alignment="right">
+            <slot name="footer">
+              <md-button id="btn" class="md-simple md-icon-button md-dense">
+                <md-icon>library_add</md-icon>
+                <md-tooltip md-direction="bottom">เพิ่มคำถาม</md-tooltip>
+              </md-button>
+              <md-button id="btn" class="md-simple md-icon-button md-dense">
+                <md-icon>file_copy</md-icon>
+                <md-tooltip md-direction="bottom">คัดลอกคำถาม</md-tooltip>
+              </md-button>
+              <md-button id="btn" class="md-simple md-icon-button md-dense">
+                <md-icon>delete</md-icon>
+                <md-tooltip md-direction="bottom">ลบคำถาม</md-tooltip>
+              </md-button>
+            </slot>
           </md-card-actions>
         </md-card>
 
         <!-- --------------------------------- -->
 
-         <md-card>
+        <md-card>
           <md-card-content>
             <div class="md-layout">
               <div class="md-layout-item md-small-size-90 md-size-90">
@@ -58,29 +83,76 @@
                   <label>คำถาม</label>
                   <md-input v-model="password" type="text"></md-input>
                 </md-field>
-                <md-field>
-              <label>ข้อความคำตอบ</label>
-              <md-input v-model="disabled" disabled></md-input>
-            </md-field>
-                
+                <div class="md-layout">
+                  <div class="md-layout-item md-small-size-40 md-size-40">
+                    <md-field slot="content">
+                      <label>เพิ่มรูปภาพ</label>
+                      <md-file v-model="single" />
+                    </md-field>
+                  </div>
+                  <div class="md-layout-item md-small-size-45 md-size-45">
+                    <md-field slot="content">
+                      <md-icon>radio_button_checked</md-icon>
+                      <label>ระบุคำตอบ</label>
+                      <md-input v-model="password" type="text"></md-input>
+                    </md-field>
+                  </div>
+                  <div class="md-layout-item md-small-size-15 md-size-15">
+                    <md-button id="btn" class="md-success md-icon-button md-dense">
+                      <md-icon>add_box</md-icon>
+                      <md-tooltip md-direction="bottom">เพิ่มคำตอบ</md-tooltip>
+                    </md-button>
+                    <md-button id="btn" class="md-danger md-icon-button md-dense">
+                      <md-icon>delete</md-icon>
+                      <md-tooltip md-direction="bottom">ลบคำตอบ</md-tooltip>
+                    </md-button>
+                  </div>
+                </div>
               </div>
+
               <div class="md-layout-item md-small-size-10 md-size-10">
                 <md-menu md-size="medium" md-align-trigger>
-
-                  <md-button class="md-primary md-just-icon md-round" md-menu-trigger><md-icon >cached</md-icon></md-button>
+                  <md-button class="md-primary md-just-icon md-round" md-menu-trigger>
+                    <md-icon>cached</md-icon>
+                  </md-button>
 
                   <md-menu-content>
-                    <md-menu-item>ข้อความสั้นๆ</md-menu-item>
-                    <md-menu-item>ตัวเลือกประกอบรูปภาพ</md-menu-item>
-                    <md-menu-item>ตัวเลอกข้อความ</md-menu-item>
+                    <md-menu-item>
+                      <md-button class="md-simple md-sm">
+                        <md-icon>short_text</md-icon>ข้อความสั้นๆ
+                      </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                      <md-button class="md-simple md-sm">
+                        <md-icon>insert_photo</md-icon>ตัวเลือกประกอบรูปภาพ
+                      </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                      <md-button class="md-simple md-sm">
+                        <md-icon>radio_button_checked</md-icon>ตัวเลอกข้อความ
+                      </md-button>
+                    </md-menu-item>
                   </md-menu-content>
                 </md-menu>
               </div>
             </div>
           </md-card-content>
 
-          <md-card-actions md-alignment="left">
-            <slot name="footer"><md-button href class="md-success md-round" slot="footer">Unlock</md-button></slot>
+          <md-card-actions md-alignment="right">
+            <slot name="footer">
+              <md-button id="btn" class="md-simple md-icon-button md-dense">
+                <md-icon>library_add</md-icon>
+                <md-tooltip md-direction="bottom">เพิ่มคำถาม</md-tooltip>
+              </md-button>
+              <md-button id="btn" class="md-simple md-icon-button md-dense">
+                <md-icon>file_copy</md-icon>
+                <md-tooltip md-direction="bottom">คัดลอกคำถาม</md-tooltip>
+              </md-button>
+              <md-button id="btn" class="md-simple md-icon-button md-dense">
+                <md-icon>delete</md-icon>
+                <md-tooltip md-direction="bottom">ลบคำถาม</md-tooltip>
+              </md-button>
+            </slot>
           </md-card-actions>
         </md-card>
 
@@ -95,101 +167,86 @@
                   <md-input v-model="password" type="text"></md-input>
                 </md-field>
                 <md-field>
-              <label>ข้อความคำตอบ</label>
-              <md-input v-model="disabled" disabled></md-input>
-            </md-field>
-                
+                  <label>เพิ่มรูปภาพ</label>
+                  <md-file v-model="single" />
+                </md-field>
+                <md-field>
+                  <md-icon>radio_button_checked</md-icon>
+                  <label>ระบุคำตอบ</label>
+                  <md-input v-model="password" type="text"></md-input>
+                  <md-button id="btn" class="md-success md-icon-button md-dense">
+                    <md-icon>add_box</md-icon>
+                    <md-tooltip md-direction="bottom">เพิ่มคำตอบ</md-tooltip>
+                  </md-button>
+                  <md-button id="btn" class="md-danger md-icon-button md-dense">
+                    <md-icon>delete</md-icon>
+                    <md-tooltip md-direction="bottom">ลบคำตอบ</md-tooltip>
+                  </md-button>
+                </md-field>
               </div>
               <div class="md-layout-item md-small-size-10 md-size-10">
                 <md-menu md-size="medium" md-align-trigger>
-
-                  <md-button class="md-primary md-just-icon md-round" md-menu-trigger><md-icon >cached</md-icon></md-button>
+                  <md-button class="md-primary md-just-icon md-round" md-menu-trigger>
+                    <md-icon>cached</md-icon>
+                  </md-button>
 
                   <md-menu-content>
-                    <md-menu-item>ข้อความสั้นๆ</md-menu-item>
-                    <md-menu-item>ตัวเลือกประกอบรูปภาพ</md-menu-item>
-                    <md-menu-item>ตัวเลอกข้อความ</md-menu-item>
+                    <md-menu-item>
+                      <md-button class="md-simple md-sm">
+                        <md-icon>short_text</md-icon>ข้อความสั้นๆ
+                      </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                      <md-button class="md-simple md-sm">
+                        <md-icon>insert_photo</md-icon>ตัวเลือกประกอบรูปภาพ
+                      </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                      <md-button class="md-simple md-sm">
+                        <md-icon>radio_button_checked</md-icon>ตัวเลอกข้อความ
+                      </md-button>
+                    </md-menu-item>
                   </md-menu-content>
                 </md-menu>
               </div>
             </div>
           </md-card-content>
 
-          <md-card-actions md-alignment="left">
-            <slot name="footer"><md-button href class="md-success md-round" slot="footer">Unlock</md-button></slot>
+          <md-card-actions md-alignment="right">
+            <slot name="footer">
+              <md-button id="btn" class="md-simple md-icon-button md-dense">
+                <md-icon>library_add</md-icon>
+                <md-tooltip md-direction="bottom">เพิ่มคำถาม</md-tooltip>
+              </md-button>
+              <md-button id="btn" class="md-simple md-icon-button md-dense">
+                <md-icon>file_copy</md-icon>
+                <md-tooltip md-direction="bottom">คัดลอกคำถาม</md-tooltip>
+              </md-button>
+              <md-button id="btn" class="md-simple md-icon-button md-dense">
+                <md-icon>delete</md-icon>
+                <md-tooltip md-direction="bottom">ลบคำถาม</md-tooltip>
+              </md-button>
+            </slot>
           </md-card-actions>
         </md-card>
 
         <!-- --------------------------------------------- -->
 
         <div class="md-layout">
-          <div class="md-layout-item md-small-size-100 md-size-33">
-            <md-field>
-              <label>Company (disabled)</label>
-              <md-input v-model="disabled" disabled></md-input>
-            </md-field>
-          </div>
-          <div class="md-layout-item md-small-size-100 md-size-33">
-            <md-field>
-              <label>User Name</label>
-              <md-input v-model="username" type="text"></md-input>
-            </md-field>
-          </div>
-          <div class="md-layout-item md-small-size-100 md-size-33">
-            <md-field>
-              <label>Email Address</label>
-              <md-input v-model="emailadress" type="email"></md-input>
-            </md-field>
-          </div>
-          <div class="md-layout-item md-small-size-100 md-size-50">
-            <md-field>
-              <label>First Name</label>
-              <md-input v-model="firstname" type="text"></md-input>
-            </md-field>
-          </div>
-          <div class="md-layout-item md-small-size-100 md-size-50">
-            <md-field>
-              <label>Last Name</label>
-              <md-input v-model="lastname" type="text"></md-input>
-            </md-field>
-          </div>
-          <div class="md-layout-item md-small-size-100 md-size-100">
-            <md-field>
-              <label>Adress</label>
-              <md-input v-model="address" type="text"></md-input>
-            </md-field>
-          </div>
-          <div class="md-layout-item md-small-size-100 md-size-33">
-            <md-field>
-              <label>City</label>
-              <md-input v-model="city" type="text"></md-input>
-            </md-field>
-          </div>
-          <div class="md-layout-item md-small-size-100 md-size-33">
-            <md-field>
-              <label>Country</label>
-              <md-input v-model="country" type="text"></md-input>
-            </md-field>
-          </div>
-          <div class="md-layout-item md-small-size-100 md-size-33">
-            <md-field>
-              <label>Postal Code</label>
-              <md-input v-model="code" type="number"></md-input>
-            </md-field>
-          </div>
-          <div class="md-layout-item md-size-100">
-            <md-field maxlength="5">
-              <label>About Me</label>
-              <md-textarea v-model="aboutme"></md-textarea>
-            </md-field>
-          </div>
           <div class="md-layout-item md-size-100 text-right">
-            <md-button class="md-raised md-success">Update Profile</md-button>
+            <md-button class="md-primary md-raised" @click="second = true">Confirm</md-button>
           </div>
         </div>
       </md-card-content>
     </md-card>
+
+    <md-dialog-alert
+      :md-active.sync="second"
+      md-title="Form created!"
+      md-content="Your form is success has been created." />
+
   </form>
+  
 </template>
 <script>
 export default {
@@ -200,24 +257,18 @@ export default {
       default: ""
     }
   },
-  data() {
-    return {
-      username: null,
-      disabled: null,
-      emailadress: null,
-      lastname: null,
-      firstname: null,
-      address: null,
-      city: null,
-      country: null,
-      code: null,
-      aboutme:
-        "Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
-    };
-  }
+    data: () => ({
+      first: false,
+      second: false
+    })
 };
 </script>
 
+<style lang="scss" scoped>
+#btn {
+  margin-right: 15px;
+}
+</style>
 
 
 
