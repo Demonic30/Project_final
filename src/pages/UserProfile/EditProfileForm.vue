@@ -3,7 +3,7 @@
     <md-card>
       <md-card-header :data-background-color="dataBackgroundColor">
         <md-field class="md-primary">
-          <label >Form name</label>
+          <label>Form name</label>
           <md-input v-model="initial"></md-input>
         </md-field>
         <md-field>
@@ -14,6 +14,114 @@
       </md-card-header>
 
       <md-card-content>
+        <md-card>
+          <md-card-content>
+            <div class="md-layout">
+              <div class="md-layout-item md-small-size-90 md-size-90">
+                <md-field slot="content">
+                  <label>คำถาม</label>
+                  <md-input v-model="password" type="text"></md-input>
+                </md-field>
+                <md-field>
+              <label>ข้อความคำตอบ</label>
+              <md-input v-model="disabled" disabled></md-input>
+            </md-field>
+                
+              </div>
+              <div class="md-layout-item md-small-size-10 md-size-10">
+                <md-menu md-size="medium" md-align-trigger>
+
+                  <md-button class="md-primary md-just-icon md-round" md-menu-trigger><md-icon >cached</md-icon></md-button>
+
+                  <md-menu-content>
+                    <md-menu-item>ข้อความสั้นๆ</md-menu-item>
+                    <md-menu-item>ตัวเลือกประกอบรูปภาพ</md-menu-item>
+                    <md-menu-item>ตัวเลอกข้อความ</md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </div>
+            </div>
+          </md-card-content>
+
+          <md-card-actions md-alignment="left">
+            <slot name="footer"><md-button href class="md-success md-round" slot="footer">Unlock</md-button></slot>
+          </md-card-actions>
+        </md-card>
+
+        <!-- --------------------------------- -->
+
+         <md-card>
+          <md-card-content>
+            <div class="md-layout">
+              <div class="md-layout-item md-small-size-90 md-size-90">
+                <md-field slot="content">
+                  <label>คำถาม</label>
+                  <md-input v-model="password" type="text"></md-input>
+                </md-field>
+                <md-field>
+              <label>ข้อความคำตอบ</label>
+              <md-input v-model="disabled" disabled></md-input>
+            </md-field>
+                
+              </div>
+              <div class="md-layout-item md-small-size-10 md-size-10">
+                <md-menu md-size="medium" md-align-trigger>
+
+                  <md-button class="md-primary md-just-icon md-round" md-menu-trigger><md-icon >cached</md-icon></md-button>
+
+                  <md-menu-content>
+                    <md-menu-item>ข้อความสั้นๆ</md-menu-item>
+                    <md-menu-item>ตัวเลือกประกอบรูปภาพ</md-menu-item>
+                    <md-menu-item>ตัวเลอกข้อความ</md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </div>
+            </div>
+          </md-card-content>
+
+          <md-card-actions md-alignment="left">
+            <slot name="footer"><md-button href class="md-success md-round" slot="footer">Unlock</md-button></slot>
+          </md-card-actions>
+        </md-card>
+
+        <!-- --------------------------------------------- -->
+
+        <md-card>
+          <md-card-content>
+            <div class="md-layout">
+              <div class="md-layout-item md-small-size-90 md-size-90">
+                <md-field slot="content">
+                  <label>คำถาม</label>
+                  <md-input v-model="password" type="text"></md-input>
+                </md-field>
+                <md-field>
+              <label>ข้อความคำตอบ</label>
+              <md-input v-model="disabled" disabled></md-input>
+            </md-field>
+                
+              </div>
+              <div class="md-layout-item md-small-size-10 md-size-10">
+                <md-menu md-size="medium" md-align-trigger>
+
+                  <md-button class="md-primary md-just-icon md-round" md-menu-trigger><md-icon >cached</md-icon></md-button>
+
+                  <md-menu-content>
+                    <md-menu-item>ข้อความสั้นๆ</md-menu-item>
+                    <md-menu-item>ตัวเลือกประกอบรูปภาพ</md-menu-item>
+                    <md-menu-item>ตัวเลอกข้อความ</md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </div>
+            </div>
+          </md-card-content>
+
+          <md-card-actions md-alignment="left">
+            <slot name="footer"><md-button href class="md-success md-round" slot="footer">Unlock</md-button></slot>
+          </md-card-actions>
+        </md-card>
+
+        <!-- --------------------------------------------- -->
+
         <div class="md-layout">
           <div class="md-layout-item md-small-size-100 md-size-33">
             <md-field>
@@ -109,6 +217,7 @@ export default {
   }
 };
 </script>
+
 
 
 
