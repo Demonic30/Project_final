@@ -3,15 +3,15 @@
     <md-card>
       <md-card-header :data-background-color="dataBackgroundColor">
         <div class="md-layout-item">
-        <md-field class="md-primary" >
-          <label>ชื่อฟอร์ม</label>
-          <md-input v-model="initial"></md-input>
-        </md-field>
-        <md-field>
-          <label>คำอธิบายแบบฟอร์ม</label>
-          <md-input v-model="type"></md-input>
-          <span class="md-helper-text"></span>
-        </md-field>
+          <md-field class="md-primary">
+            <label>ชื่อฟอร์ม</label>
+            <md-input v-model="initial"></md-input>
+          </md-field>
+          <md-field>
+            <label>คำอธิบายแบบฟอร์ม</label>
+            <md-input v-model="type"></md-input>
+            <span class="md-helper-text"></span>
+          </md-field>
         </div>
       </md-card-header>
 
@@ -34,8 +34,11 @@
                   <md-button class="md-primary md-just-icon md-round" md-menu-trigger>
                     <md-icon>cached</md-icon>
                   </md-button>
-                
-                  <md-button  class="md-primary md-just-icon md-round md-raised" @click="showDialog = true">
+
+                  <md-button
+                    class="md-primary md-just-icon md-round md-raised"
+                    @click="showDialog = true"
+                  >
                     <md-icon>extension</md-icon>
                     <md-tooltip md-direction="bottom">คำอธิบาย</md-tooltip>
                   </md-button>
@@ -114,7 +117,6 @@
                       <md-tooltip md-direction="bottom">ลบคำตอบ</md-tooltip>
                     </md-button>
                   </div>
-                  
                 </div>
               </div>
 
@@ -124,7 +126,10 @@
                     <md-icon>cached</md-icon>
                   </md-button>
 
-                  <md-button  class="md-primary md-just-icon md-round md-raised" @click="showDialog = true">
+                  <md-button
+                    class="md-primary md-just-icon md-round md-raised"
+                    @click="showDialog = true"
+                  >
                     <md-icon>extension</md-icon>
                     <md-tooltip md-direction="bottom">คำอธิบาย</md-tooltip>
                   </md-button>
@@ -203,7 +208,10 @@
                     <md-icon>cached</md-icon>
                   </md-button>
 
-                  <md-button  class="md-primary md-just-icon md-round md-raised" @click="showDialog = true">
+                  <md-button
+                    class="md-primary md-just-icon md-round md-raised"
+                    @click="showDialog = true"
+                  >
                     <md-icon>extension</md-icon>
                     <md-tooltip md-direction="bottom">คำอธิบาย</md-tooltip>
                   </md-button>
@@ -249,6 +257,9 @@
         </md-card>
 
         <!-- --------------------------------------------- -->
+        <h2>Dynamically inserted:</h2>
+        <button @click="onClick">Click to insert</button>
+        <div ref="container"></div>
 
         <div class="md-layout">
           <div class="md-layout-item md-size-100 text-right">
@@ -311,8 +322,14 @@
   </form>
 </template>
 <script>
+
+import Vue from 'vue'
+import Button from '@/components/Button'
+
 export default {
+    
   name: "edit-profile-form",
+  components: { Button },
   props: {
     dataBackgroundColor: {
       type: String,
@@ -331,7 +348,17 @@ export default {
     },
     onCancel() {
       this.value = "Disagreed";
-    }
+    },
+    onClick() {
+        var ComponentClass = Vue.extend(Button)
+        var instance = new ComponentClass({
+            propsData: { type: 'primary' }
+        })
+        instance.$slots.default = ['Click me!']
+        instance.$mount() // pass nothing
+//         console.log(this.$refs)
+        this.$refs.container.appendChild(instance.$el)
+      }
   }
 };
 </script>
