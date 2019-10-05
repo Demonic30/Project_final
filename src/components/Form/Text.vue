@@ -1,22 +1,5 @@
 <template>
-  <form>
-    <md-card>
-      <md-card-header :data-background-color="dataBackgroundColor">
-        <div class="md-layout-item">
-          <md-field class="md-primary">
-            <label>ชื่อฟอร์ม</label>
-            <md-input v-model="initial"></md-input>
-          </md-field>
-          <md-field>
-            <label>คำอธิบายแบบฟอร์ม</label>
-            <md-input v-model="type"></md-input>
-            <span class="md-helper-text"></span>
-          </md-field>
-        </div>
-      </md-card-header>
-
-      <md-card-content>
-        <md-card>
+  <md-card>
           <md-card-content>
             <div class="md-layout">
               <div class="md-layout-item md-small-size-90 md-size-90">
@@ -45,17 +28,17 @@
 
                   <md-menu-content>
                     <md-menu-item>
-                      <md-button class="md-simple md-sm" @click="onClickText">
+                      <md-button class="md-simple md-sm">
                         <md-icon>short_text</md-icon>ข้อความสั้นๆ
                       </md-button>
                     </md-menu-item>
                     <md-menu-item>
-                      <md-button class="md-simple md-sm" @click="onClickGeneric">
+                      <md-button class="md-simple md-sm">
                         <md-icon>insert_photo</md-icon>ตัวเลือกประกอบรูปภาพ
                       </md-button>
                     </md-menu-item>
                     <md-menu-item>
-                      <md-button class="md-simple md-sm" @click="onClickQuickReply">
+                      <md-button class="md-simple md-sm">
                         <md-icon>radio_button_checked</md-icon>ตัวเลือกข้อความ
                       </md-button>
                     </md-menu-item>
@@ -81,42 +64,8 @@
               </md-button>
             </slot>
           </md-card-actions>
-        </md-card>
-
-        <!-- --------------------------------- -->
-
-       
-        <!-- <h2>Dynamically inserted:</h2>
-        <button @click="onClick">Click to insert</button>
-        <button @click="onClickText">Click to insert text</button>
-        <button @click="onClickGeneric">Click to insert text</button>
-        <button @click="onClickQuickReply">Click to insert text</button> -->
-        <div ref="container"></div>
-
-        <div class="md-layout">
-          <div class="md-layout-item md-size-100 text-right">
-            <center>
-              <md-button class="md-primary md-raised" @click="active = true">Confirm</md-button>
-            </center>
-          </div>
-        </div>
-      </md-card-content>
-    </md-card>
-
-    <div>
-      <md-dialog-confirm
-        :md-active.sync="active"
-        md-title="Please confirm creating a survey?"
-        md-content="Your form is success has been created."
-        md-confirm-text="Agree"
-        md-cancel-text="Disagree"
-        @md-cancel="onCancel"
-        @md-confirm="onConfirm"
-      />
-      <span v-if="value">Value: {{ value }}</span>
-    </div>
-
-    <div>
+        
+           <div>
       <md-dialog :md-active.sync="showDialog">
         <md-dialog-title align="center">Description</md-dialog-title>
         <br />
@@ -151,25 +100,15 @@
         </md-dialog-actions>
       </md-dialog>
     </div>
-  </form>
-</template>
-<script>
-import Vue from "vue";
-import Button from "@/components/Button";
-import Text from "@/components/Form/Text";
-import Generic from "@/components/Form/Generic";
-import QuickReply from "@/components/Form/QuickReply";
+        </md-card>
 
-export default {
-  name: "edit-profile-form",
-  components: { Button, Text, Generic ,QuickReply },
-  props: {
-    dataBackgroundColor: {
-      type: String,
-      default: ""
-    }
-  },
-  name: "DialogConfirm",
+        
+</template>
+
+<script>
+  export default {
+name: 'Text',
+name: "DialogConfirm",
   data: () => ({
     active: false,
     value: null,
@@ -181,63 +120,15 @@ export default {
     },
     onCancel() {
       this.value = "Disagreed";
-    },
-    onClick() {
-      var ComponentClass = Vue.extend(Button);
-      var instance = new ComponentClass({
-        propsData: { type: "primary" }
-      });
-      instance.$slots.default = ["Click me!"];
-      instance.$mount(); // pass nothing
-      //         console.log(this.$refs)
-      this.$refs.container.appendChild(instance.$el);
-    },
-    onClickText() {
-      var ComponentClass = Vue.extend(Text);
-      var instance = new ComponentClass({
-        propsData: { type: "primary" }
-      });
-      instance.$slots.default = ["Click me!"];
-      instance.$mount(); // pass nothing
-      //         console.log(this.$refs)
-      this.$refs.container.appendChild(instance.$el);
-    },
-    onClickGeneric() {
-      var ComponentClass = Vue.extend(Generic);
-      var instance = new ComponentClass({
-        propsData: { type: "primary" }
-      });
-      instance.$slots.default = ["Click me!"];
-      instance.$mount(); // pass nothing
-      //         console.log(this.$refs)
-      this.$refs.container.appendChild(instance.$el);
-    },
-    onClickQuickReply() {
-      var ComponentClass = Vue.extend(QuickReply);
-      var instance = new ComponentClass({
-        propsData: { type: "primary" }
-      });
-      instance.$slots.default = ["Click me!"];
-      instance.$mount(); // pass nothing
-      //         console.log(this.$refs)
-      this.$refs.container.appendChild(instance.$el);
     }
-  }
-};
-</script>
+},
+props: [ 'type' ]
+}
 
-<style lang="scss" scoped>
-#btn {
-  margin-right: 15px;
-}
-.md-dialog {
-  max-width: 2000px;
-}
-.md-card-img {
-  width: 400px;
-  display: inline-block;
+</script>
+<style scoped>
+button.primary {
+background: blue;
+color: white;
 }
 </style>
-
-
-
