@@ -31,9 +31,9 @@ import Notifications from "./components/NotificationPlugin";
 
 // MaterialDashboard plugin
 import MaterialDashboard from "./material-dashboard";
-
+import VueAppend from 'vue-append'
+  
 import Chartist from "chartist";
-
 // configure router
 const router = new VueRouter({
   routes, // short for routes: routes
@@ -47,6 +47,7 @@ Vue.use(MaterialDashboard);
 Vue.use(GlobalComponents);
 Vue.use(GlobalDirectives);
 Vue.use(Notifications);
+Vue.use(VueAppend)
 
 
 /* eslint-disable no-new */

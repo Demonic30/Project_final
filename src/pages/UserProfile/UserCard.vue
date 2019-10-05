@@ -4,16 +4,18 @@
       <form novalidate @submit.stop.prevent="showSnackbar = true">
         <div class="md-layout">
           <div class="md-layout-item md-small-size-100 md-size-80">
-            <br>
+            <br />
             <div for="snackbar-center" class="md-body-2">Answer 150</div>
-            <br>
+            <br />
             <div class="md-body-2">SUMMARY INFORMATION</div>
           </div>
           <div class="md-layout-item md-small-size-100 md-size-20">
-            <center> <md-button class="md-icon-button md-dense md-raised md-primary">
-              <md-icon>description</md-icon>
-            </md-button>
-            <p>Download Replies</p></center>
+            <center>
+              <md-button class="md-icon-button md-dense md-raised md-primary">
+                <md-icon>description</md-icon>
+              </md-button>
+              <p>Download Replies</p>
+            </center>
             <md-switch v-model="switch1">Open to answer</md-switch>
           </div>
         </div>
@@ -21,28 +23,27 @@
     </md-card-header>
     <md-card-content>
       <chart-card
-          :chart-data="dailySalesChart.data"
-          :chart-options="dailySalesChart.options"
-          :chart-type="'Line'"
-          data-background-color="green"
-        >
-          <template slot="content">
-            <h4 class="title">1.Age</h4>
-            <p class="category">
-              <span class="text-success"
-                ><i class="fa fa-reply"></i> 150
-              </span>
-              Answer
-            </p>
-          </template>
+        :chart-data="dailySalesChart.data"
+        :chart-options="dailySalesChart.options"
+        :chart-type="'Line'"
+        data-background-color="green"
+      >
+        <template slot="content">
+          <h4 class="title">1.Age</h4>
+          <p class="category">
+            <span class="text-success">
+              <i class="fa fa-reply"></i> 150
+            </span>
+            Answer
+          </p>
+        </template>
 
-          <template slot="footer">
-            <div class="stats">
-              <md-icon>access_time</md-icon>
-              updated 4 minutes ago
-            </div>
-          </template>
-        </chart-card>
+        <template slot="footer">
+          <div class="stats">
+            <md-icon>access_time</md-icon>updated 4 minutes ago
+          </div>
+        </template>
+      </chart-card>
     </md-card-content>
   </md-card>
 </template>
@@ -64,11 +65,6 @@ export default {
       default: ""
     }
   },
-  data () {
-      return {
-        switch1: true
-      }
-    },
   name: "SnackbarExample",
   data: () => ({
     showSnackbar: false,
@@ -118,6 +114,6 @@ export default {
         ]
       }
     };
-  },
+  }
 };
 </script>

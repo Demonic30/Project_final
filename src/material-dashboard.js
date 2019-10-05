@@ -16,5 +16,6 @@ export default {
   install(Vue) {
     Vue.use(SideBar);
     Vue.use(VueMaterial);
+    
   }
 };

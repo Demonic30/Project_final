@@ -16,7 +16,7 @@
         <md-icon>feedback</md-icon>
         <p>Feedback</p>
       </sidebar-link>
-      <!-- <sidebar-link to="/dashboard">
+      <sidebar-link to="/dashboard">
         <md-icon>dashboard</md-icon>
         <p>Dashboard</p>
       </sidebar-link>
@@ -47,7 +47,7 @@
       <sidebar-link to="/upgrade" class="active-pro">
         <md-icon>unarchive</md-icon>
         <p>Upgrade to PRO</p>
-      </sidebar-link> -->
+      </sidebar-link>
     </side-bar>
 
     <div class="main-panel">

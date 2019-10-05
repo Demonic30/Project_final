@@ -3,7 +3,7 @@
     <div class="md-layout">
       <div class="md-layout-item">
         <center>
-        <div class="md-layout-item md-medium-size-80 md-xsmall-size-80 md-size-80">
+        <div class="md-layout-item md-medium-size-70 md-xsmall-size-70 md-size-70">
           <md-tabs class="md-accent" md-alignment="centered" md-sync-route>
             <md-tab id="tab-home" md-label="Question" to="/form">
             </md-tab>
