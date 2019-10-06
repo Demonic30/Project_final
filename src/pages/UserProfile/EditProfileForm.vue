@@ -16,19 +16,43 @@
       </md-card-header>
 
       <md-card-content>
+        <div ref="container">
+          <div ref="change">
         <md-card>
-          <md-card-content>
+           <md-card-content>
             <div class="md-layout">
               <div class="md-layout-item md-small-size-90 md-size-90">
                 <md-field slot="content">
                   <label>คำถาม</label>
                   <md-input v-model="password" type="text"></md-input>
                 </md-field>
-                <md-field>
-                  <label>ข้อความคำตอบ</label>
-                  <md-input v-model="disabled" disabled></md-input>
-                </md-field>
+                <div class="md-layout">
+                  <div class="md-layout-item md-small-size-40 md-size-40">
+                    <md-field slot="content">
+                      <label>เพิ่มรูปภาพ</label>
+                      <md-file v-model="single" />
+                    </md-field>
+                  </div>
+                  <div class="md-layout-item md-small-size-45 md-size-45">
+                    <md-field slot="content">
+                      <md-icon>radio_button_checked</md-icon>
+                      <label>ระบุคำตอบ</label>
+                      <md-input v-model="password" type="text"></md-input>
+                    </md-field>
+                  </div>
+                  <div class="md-layout-item md-small-size-15 md-size-15">
+                    <md-button id="btn" class="md-success md-icon-button md-dense">
+                      <md-icon>add_box</md-icon>
+                      <md-tooltip md-direction="bottom">เพิ่มคำตอบ</md-tooltip>
+                    </md-button>
+                    <md-button id="btn" class="md-danger md-icon-button md-dense">
+                      <md-icon>delete</md-icon>
+                      <md-tooltip md-direction="bottom">ลบคำตอบ</md-tooltip>
+                    </md-button>
+                  </div>
+                </div>
               </div>
+
               <div class="md-layout-item md-small-size-10 md-size-10">
                 <md-menu md-size="medium" md-align-trigger>
                   <md-button class="md-primary md-just-icon md-round" md-menu-trigger>
@@ -44,18 +68,18 @@
                   </md-button>
 
                   <md-menu-content>
-                    <md-menu-item>
+                    <!-- <md-menu-item>
                       <md-button class="md-simple md-sm" @click="onClickText">
                         <md-icon>short_text</md-icon>ข้อความสั้นๆ
                       </md-button>
-                    </md-menu-item>
+                    </md-menu-item> -->
                     <md-menu-item>
-                      <md-button class="md-simple md-sm" @click="onClickGeneric">
+                      <md-button class="md-simple md-sm" @click="onClickGeneric" v-on:click="close">
                         <md-icon>insert_photo</md-icon>ตัวเลือกประกอบรูปภาพ
                       </md-button>
                     </md-menu-item>
                     <md-menu-item>
-                      <md-button class="md-simple md-sm" @click="onClickQuickReply">
+                      <md-button class="md-simple md-sm" >
                         <md-icon>radio_button_checked</md-icon>ตัวเลือกข้อความ
                       </md-button>
                     </md-menu-item>
@@ -67,18 +91,18 @@
 
           <md-card-actions md-alignment="right">
             <slot name="footer">
-              <md-button id="btn" class="md-simple md-icon-button md-dense">
+              <md-button id="btn" class="md-simple md-icon-button md-dense"  @click="onClickGeneric">
                 <md-icon>library_add</md-icon>
                 <md-tooltip md-direction="bottom">เพิ่มคำถาม</md-tooltip>
               </md-button>
-              <md-button id="btn" class="md-simple md-icon-button md-dense">
+              <!-- <md-button id="btn" class="md-simple md-icon-button md-dense">
                 <md-icon>file_copy</md-icon>
-                <md-tooltip md-direction="bottom">คัดลอกคำถาม</md-tooltip>
-              </md-button>
-              <md-button id="btn" class="md-simple md-icon-button md-dense">
+                <md-tooltip md-direction="bottom">คัดลือกคำถาม</md-tooltip>
+              </md-button> -->
+              <!-- <md-button id="btn" class="md-simple md-icon-button md-dense">
                 <md-icon>delete</md-icon>
                 <md-tooltip md-direction="bottom">ลบคำถาม</md-tooltip>
-              </md-button>
+              </md-button> -->
             </slot>
           </md-card-actions>
         </md-card>
@@ -91,7 +115,9 @@
         <button @click="onClickText">Click to insert text</button>
         <button @click="onClickGeneric">Click to insert text</button>
         <button @click="onClickQuickReply">Click to insert text</button> -->
-        <div ref="container"></div>
+
+        </div>
+        </div>
 
         <div class="md-layout">
           <div class="md-layout-item md-size-100 text-right">
@@ -121,13 +147,13 @@
         <md-dialog-title align="center">Description</md-dialog-title>
         <br />
         <md-tabs class="md-accent" md-alignment="centered">
-          <md-tab id="tab-home" md-label="ข้อความสั้นๆ" md-icon="short_text">
+          <!-- <md-tab id="tab-home" md-label="ข้อความสั้นๆ" md-icon="short_text">
             <center>
               <div class="md-card-img">
                 <img src="@/assets/img/11.png" alt="Cover" />
               </div>
             </center>
-          </md-tab>
+          </md-tab> -->
 
           <md-tab id="tab-pages" md-label="ตัวเลือกประกอบรูปภาพ" md-icon="insert_photo">
             <center>
@@ -155,14 +181,13 @@
 </template>
 <script>
 import Vue from "vue";
-import Button from "@/components/Button";
-import Text from "@/components/Form/Text";
+// import Text from "@/components/Form/Text";
 import Generic from "@/components/Form/Generic";
-import QuickReply from "@/components/Form/QuickReply";
+// import QuickReply from "@/components/Form/QuickReply";
 
 export default {
   name: "edit-profile-form",
-  components: { Button, Text, Generic ,QuickReply },
+  components: {  Generic },
   props: {
     dataBackgroundColor: {
       type: String,
@@ -182,26 +207,20 @@ export default {
     onCancel() {
       this.value = "Disagreed";
     },
-    onClick() {
-      var ComponentClass = Vue.extend(Button);
-      var instance = new ComponentClass({
-        propsData: { type: "primary" }
-      });
-      instance.$slots.default = ["Click me!"];
-      instance.$mount(); // pass nothing
-      //         console.log(this.$refs)
-      this.$refs.container.appendChild(instance.$el);
+    close() {
+      this.$refs.change.remove();
     },
-    onClickText() {
-      var ComponentClass = Vue.extend(Text);
-      var instance = new ComponentClass({
-        propsData: { type: "primary" }
-      });
-      instance.$slots.default = ["Click me!"];
-      instance.$mount(); // pass nothing
-      //         console.log(this.$refs)
-      this.$refs.container.appendChild(instance.$el);
-    },
+
+    // onClickText() {
+    //   var ComponentClass = Vue.extend(Text);
+    //   var instance = new ComponentClass({
+    //     propsData: { type: "primary" }
+    //   });
+    //   instance.$slots.default = ["Click me!"];
+    //   instance.$mount(); // pass nothing
+    //   //         console.log(this.$refs)
+    //   this.$refs.container.appendChild(instance.$el);
+    // },
     onClickGeneric() {
       var ComponentClass = Vue.extend(Generic);
       var instance = new ComponentClass({
@@ -212,24 +231,24 @@ export default {
       //         console.log(this.$refs)
       this.$refs.container.appendChild(instance.$el);
     },
-    onClickQuickReply() {
-      var ComponentClass = Vue.extend(QuickReply);
-      var instance = new ComponentClass({
-        propsData: { type: "primary" }
-      });
-      instance.$slots.default = ["Click me!"];
-      instance.$mount(); // pass nothing
-      //         console.log(this.$refs)
-      this.$refs.container.appendChild(instance.$el);
-    }
+    // onClickQuickReply() {
+    //   var ComponentClass = Vue.extend(QuickReply);
+    //   var instance = new ComponentClass({
+    //     propsData: { type: "primary" }
+    //   });
+    //   instance.$slots.default = ["Click me!"];
+    //   instance.$mount(); // pass nothing
+    //   //         console.log(this.$refs)
+    //   this.$refs.container.appendChild(instance.$el);
+    // }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-#btn {
-  margin-right: 15px;
-}
+// #btn {
+//   margin-right: 15px;
+// }
 .md-dialog {
   max-width: 2000px;
 }

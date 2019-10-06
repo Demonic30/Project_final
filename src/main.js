@@ -28,7 +28,10 @@ import routes from "./routes/routes";
 import GlobalComponents from "./globalComponents";
 import GlobalDirectives from "./globalDirectives";
 import Notifications from "./components/NotificationPlugin";
-
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+ 
+Vue.use(VueAxios, axios)
 // MaterialDashboard plugin
 import MaterialDashboard from "./material-dashboard";
 import VueAppend from 'vue-append'
@@ -52,6 +55,7 @@ Vue.use(VueAppend)
 
 /* eslint-disable no-new */
 new Vue({
+  // store,
   el: "#app",
   render: h => h(App),
   router,
