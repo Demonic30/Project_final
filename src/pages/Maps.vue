@@ -1,13 +1,28 @@
 <template>
-  <div id="app">
-      <h2>Dynamically inserted:</h2><button @click="onClick">Click to insert</button>
-      <div ref="container">
-        
+  <div>
+       <button @click="getUser()">get User from API</button> <br>
+    {{user}}
       </div>
-    </div>
+    
 </template>
 
 <script>
+import {mapActions, mapState} from 'vuex'
+export default {
+  name: 'App1',
+  components: {
+  },
+  methods: {
+    ...mapActions({
+      getUser: 'getUser'
+    })
+  },
+  computed: {
+    ...mapState({
+      user: state => state.user
+    })
+  }
+}
 
 </script>
 
