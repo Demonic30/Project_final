@@ -7,7 +7,7 @@
             <div class="md-layout-item md-small-size-90 md-size-90">
               <md-field slot="content">
                 <label>คำถาม</label>
-                <md-input v-model="password" type="text"></md-input>
+                <md-input  type="text"></md-input>
               </md-field>
               <div class="md-layout">
                 <div class="md-layout-item md-small-size-40 md-size-40">

@@ -5,11 +5,11 @@
         <div class="md-layout-item">
           <md-field class="md-primary">
             <label>ชื่อฟอร์ม</label>
-            <md-input v-model="initial"></md-input>
+            <md-input ></md-input>
           </md-field>
           <md-field>
             <label>คำอธิบายแบบฟอร์ม</label>
-            <md-input v-model="type"></md-input>
+            <md-input ></md-input>
             <span class="md-helper-text"></span>
           </md-field>
         </div>
@@ -24,20 +24,20 @@
                   <div class="md-layout-item md-small-size-90 md-size-90">
                     <md-field slot="content">
                       <label>คำถาม</label>
-                      <md-input v-model="password" type="text"></md-input>
+                      <md-input type="text"></md-input>
                     </md-field>
                     <div class="md-layout">
                       <div class="md-layout-item md-small-size-40 md-size-40">
                         <md-field slot="content">
                           <label>เพิ่มรูปภาพ</label>
-                          <md-file v-model="single" />
+                          <md-file  />
                         </md-field>
                       </div>
                       <div class="md-layout-item md-small-size-45 md-size-45">
                         <md-field slot="content">
                           <md-icon>radio_button_checked</md-icon>
                           <label>ระบุคำตอบ</label>
-                          <md-input v-model="password" type="text"></md-input>
+                          <md-input  type="text"></md-input>
                         </md-field>
                       </div>
                       <div class="md-layout-item md-small-size-15 md-size-15">

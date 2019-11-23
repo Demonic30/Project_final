@@ -1,28 +1,28 @@
 <template>
   <div>
-       <button @click="getUser()">get User from API</button> <br>
-    {{user}}
+       <button>get User from API</button> <br>
+    
       </div>
     
 </template>
 
 <script>
-import {mapActions, mapState} from 'vuex'
-export default {
-  name: 'App1',
-  components: {
-  },
-  methods: {
-    ...mapActions({
-      getUser: 'getUser'
-    })
-  },
-  computed: {
-    ...mapState({
-      user: state => state.user
-    })
-  }
-}
+// import {mapActions, mapState} from 'vuex'
+// export default {
+//   name: 'App1',
+//   components: {
+//   },
+//   methods: {
+//     ...mapActions({
+//       getUser: 'getUser'
+//     })
+//   },
+//   computed: {
+//     ...mapState({
+//       user: state => state.user
+//     })
+//   }
+// }
 
 </script>
 

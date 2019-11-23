@@ -4,10 +4,12 @@
       <md-card>
         <md-card-content>
           <div class="md-layout">
-            <div class="md-layout-item md-small-size-90 md-size-90">
+            <div class="md-layout-item md-small-size-90 md-size-90"> 
+              {{ question }}
               <md-field slot="content">
+              
                 <label>คำถาม</label>
-                <md-input v-model="password" type="text"></md-input>
+                <md-input v-model="question" type="text"></md-input>
               </md-field>
 
                 <div v-if="iii == 0 || iii == 1 || iii == 2 || iii == 3">
@@ -161,15 +163,16 @@
 <script>
 import Vue from "vue";
 // import Text from "@/components/Form/Text";
-
+import {mapState} from "vuex";
 import QuickReply from "@/components/Form/QuickReply";
 
 export default {
   name: "Generic",
   components: { QuickReply },
   name: "DialogConfirm",
-  el: "#change",
+  
   data: () => ({
+    question: null,
     inputs: [],
     active: false,
     value: null,
@@ -177,6 +180,25 @@ export default {
     iii: 0
     
   }),
+   computed: mapState([
+     "image1",
+    "image2",
+    "image3",
+    "image4",
+    "number",
+    "question",
+    "question_type",
+    "answer1",
+    "answer2",
+    "answer3",
+    "answer4",
+    "no_question",
+    "status"
+  ]),
+  mounted() {
+    console.log(this.question);
+    console.log("vuex ",this.$store.getters.question);
+  },
   methods: {
     addRow() {
       this.inputs.push({
@@ -190,12 +212,6 @@ export default {
       this.inputs.splice(index,1)
       this.iii = this.iii-1;
       
-    },
-    onConfirm() {
-      this.value = "Agreed";
-    },
-    onCancel() {
-      this.value = "Disagreed";
     },
     close() {
       this.$refs.change.remove();

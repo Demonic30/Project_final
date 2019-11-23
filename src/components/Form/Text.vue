@@ -1,11 +1,11 @@
 <template>
   <md-card id="answer">
-    <md-card-content>
+    <!-- <md-card-content>
       <div class="md-layout">
         <div class="md-layout-item md-small-size-90 md-size-90">
           <md-field slot="content">
             <label>คำถาม</label>
-            <md-input v-model="password" type="text"></md-input>
+            <md-input type="text"></md-input>
           </md-field>
           <md-field>
             <label>ข้อความคำตอบ</label>
@@ -50,17 +50,17 @@
 
     <md-card-actions md-alignment="right">
       <slot name="footer">
-        <md-button id="btn" class="md-simple md-icon-button md-dense">
+        <md-button class="md-simple md-icon-button md-dense">
           <md-icon>library_add</md-icon>
           <md-tooltip md-direction="bottom">เพิ่มคำถาม</md-tooltip>
         </md-button>
-        <md-button id="btn" class="md-simple md-icon-button md-dense">
+        <md-button class="md-simple md-icon-button md-dense">
           <md-icon>file_copy</md-icon>
           <md-tooltip md-direction="bottom">คัดลอกคำถาม</md-tooltip>
         </md-button>
-        <md-button id="btn" class="md-simple md-icon-button md-dense" @click="deleteRow(index)">
+        <md-button class="md-simple md-icon-button md-dense" @click="deleteRow(index)">
           <md-icon>delete</md-icon>
-          <md-tooltip md-direction="bottom" >ลบคำถาม</md-tooltip>
+          <md-tooltip md-direction="bottom">ลบคำถาม</md-tooltip>
         </md-button>
       </slot>
     </md-card-actions>
@@ -101,60 +101,57 @@
           <md-button class="md-primary" @click="showDialog = false">Close</md-button>
         </md-dialog-actions>
       </md-dialog>
-    </div>
+    </div> -->
   </md-card>
 </template>
 
 <script>
-import Vue from "vue";
-import Generic from "@/components/Form/Generic";
-import QuickReply from "@/components/Form/QuickReply";
+// import Vue from "vue";
+// import Generic from "@/components/Form/Generic";
+// import QuickReply from "@/components/Form/QuickReply";
 
-export default {
-  name: "Text",
-  components: { Generic, QuickReply },
-  name: "DialogConfirm",
-  data: () => ({
-    active: false,
-    value: null,
-    showDialog: false
-  }),
-  methods: {
-    onConfirm() {
-      this.value = "Agreed";
-    },
-    onCancel() {
-      this.value = "Disagreed";
-    },
-    onClickGeneric() {
-      var ComponentClass = Vue.extend(Generic);
-      var instance = new ComponentClass({
-        propsData: { type: "primary" }
-      });
-      instance.$slots.default = ["Click me!"];
-      instance.$mount(); // pass nothing
-      //         console.log(this.$refs)
-      this.$refs.container.appendChild(instance.$el);
-    },
-    onClickQuickReply() {
-      var ComponentClass = Vue.extend(QuickReply);
-      var instance = new ComponentClass({
-        propsData: { type: "primary" }
-      });
-      instance.$slots.default = ["Click me!"];
-      instance.$mount(); // pass nothing
-      //         console.log(this.$refs)
-      this.$refs.container.appendChild(instance.$el);
-    },
-    deleteRow() {
-      document.getElementById("answer").$remove();
-    }
-  },
-  xfunction: function() {
-    ("#answer").remove();
-  }  ,
-  props: ["type"]
-};
+// export default {
+//   name: "Text",
+//   components: { Generic, QuickReply },
+//   data: () => ({
+//     active: false,
+//     value: null,
+//     showDialog: false
+//   }),
+//   methods: {
+//     onConfirm() {
+//       this.value = "Agreed";
+//     },
+//     onCancel() {
+//       this.value = "Disagreed";
+//     },
+//     onClickGeneric() {
+//       var ComponentClass = Vue.extend(Generic);
+//       var instance = new ComponentClass({
+//         propsData: { type: "primary" }
+//       });
+//       instance.$slots.default = ["Click me!"];
+//       instance.$mount(); // pass nothing
+//       //         console.log(this.$refs)
+//       this.$refs.container.appendChild(instance.$el);
+//     },
+//     onClickQuickReply() {
+//       var ComponentClass = Vue.extend(QuickReply);
+//       var instance = new ComponentClass({
+//         propsData: { type: "primary" }
+//       });
+//       instance.$slots.default = ["Click me!"];
+//       instance.$mount(); // pass nothing
+//       //         console.log(this.$refs)
+//       this.$refs.container.appendChild(instance.$el);
+//     },
+//     deleteRow() {
+//       document.getElementById("answer").$remove();
+//     }
+//   },
+//   xfunction: function() {
+//     "#answer".remove();
+//   },
+//   props: ["type"]
+// };
 </script>
-<style scoped>
-</style>

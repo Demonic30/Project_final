@@ -5,7 +5,7 @@
               <div class="md-layout-item md-small-size-90 md-size-90">
                 <md-field slot="content">
                   <label>คำถาม</label>
-                  <md-input v-model="password" type="text"></md-input>
+                  <md-input  type="text"></md-input>
                 </md-field>
                 <md-field>
                   <label>เพิ่มรูปภาพ</label>
@@ -14,7 +14,7 @@
                 <md-field>
                   <md-icon>radio_button_checked</md-icon>
                   <label>ระบุคำตอบ</label>
-                  <md-input v-model="password" type="text"></md-input>
+                  <md-input type="text"></md-input>
                   <md-button id="btn" class="md-success md-icon-button md-dense">
                     <md-icon>add_box</md-icon>
                     <md-tooltip md-direction="bottom">เพิ่มคำตอบ</md-tooltip>
